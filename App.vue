@@ -59,7 +59,7 @@ export default {
       formData.append('image', this.selectedFile);
 
       try {
-        const response = await axios.post('http://localhost:5000/api/upload', formData);
+        const response = await axios.post('https://vyaapardrishti-ai.onrender.com/api/upload', formData);
         this.taskId = response.data.task_id;
         this.startPolling();
       } catch (error) {
@@ -70,7 +70,7 @@ export default {
     startPolling() {
       this.pollInterval = setInterval(async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/status/${this.taskId}`);
+          const response = await axios.get(`https://vyaapardrishti-ai.onrender.com/api/status/${this.taskId}`);
           if (response.data.status === 'COMPLETED') {
             this.insights = response.data;
             clearInterval(this.pollInterval);
