@@ -1,0 +1,6 @@
+Flask
+Flask-Cors
+celery
+pymongo
+gunicorn
+redis
